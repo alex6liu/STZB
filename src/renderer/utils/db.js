@@ -13,21 +13,25 @@ db.serialize(() => {
   /**
    * 物品表 GOODS
    * name 品名
-   * standard_buy_unit_price 标准进价
-   * standard_sell_unit_price 标准售价
-   * total_amount 总金额
-   * total_count 总数量
-   * remark 备注
+   * player1
+   * setting1
+   * player2
+   * setting2
+   * player3
+   * setting3
+   * remark
    * create_time 创建时间
    * update_time 修改时间
    */
   db.run(`CREATE TABLE GOODS(
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
-    standard_buy_unit_price DECIMAL(15,2) NOT NULL,
-    standard_sell_unit_price DECIMAL(15,2) NOT NULL,
-    total_amount DECIMAL(15,2) NOT NULL,
-    total_count DECIMAL(15,3) NOT NULL,
+    player1 VARCHAR(255) NOT NULL,
+    setting1 VARCHAR(255) NOT NULL,
+    player2 VARCHAR(255) NOT NULL,
+    setting2 VARCHAR(255) NOT NULL,
+    player3 VARCHAR(255) NOT NULL,
+    setting3 VARCHAR(255) NOT NULL,
     remark VARCHAR(255) NOT NULL,
     create_time INTEGER NOT NULL,
     update_time INTEGER NOT NULL

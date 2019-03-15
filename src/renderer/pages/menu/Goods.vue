@@ -1,7 +1,7 @@
 <template>
     <div>
         <Form :label-width="90" inline @keydown.native.enter.prevent="getDataList('search')">
-            <FormItem label="品名">
+            <FormItem label="队伍">
                 <Input v-model="search.name" style="width: 203px" clearable></Input>
             </FormItem>
             <FormItem label="备注">
@@ -42,16 +42,28 @@
                         <Input v-model="modalParams.name" placeholder="必填，长度 100 以内"
                                style="width: 250px"></Input>
                     </FormItem>
-                    <FormItem label="天数" prop="total_count">
-                        <Input v-model="modalParams.total_count" placeholder="必填"
+                    <FormItem label="前锋" prop="player1">
+                        <Input v-model="modalParams.player1" placeholder="必填"
                                style="width: 250px"></Input>
                     </FormItem>
-                    <FormItem label="买价" prop="standard_buy_unit_price">
-                        <Input v-model.number="modalParams.standard_buy_unit_price" placeholder="非必填，小数位不超过2位的正整数"
+                    <FormItem label="战法" prop="setting1">
+                        <Input v-model="modalParams.setting1" placeholder="必填"
                                style="width: 250px"></Input>
                     </FormItem>
-                    <FormItem label="卖价" prop="standard_sell_unit_price">
-                        <Input v-model.number="modalParams.standard_sell_unit_price" placeholder="非必填，小数位不超过2位的正整数"
+                    <FormItem label="中军" prop="player2">
+                        <Input v-model="modalParams.player2" placeholder="必填"
+                               style="width: 250px"></Input>
+                    </FormItem>
+                    <FormItem label="战法" prop="setting2">
+                        <Input v-model="modalParams.setting2" placeholder="必填"
+                               style="width: 250px"></Input>
+                    </FormItem>
+                    <FormItem label="大营" prop="player3">
+                        <Input v-model="modalParams.player3" placeholder="必填"
+                               style="width: 250px"></Input>
+                    </FormItem>
+                    <FormItem label="战法" prop="setting3">
+                        <Input v-model="modalParams.setting3" placeholder="必填"
                                style="width: 250px"></Input>
                     </FormItem>
                     <FormItem label="备注" prop="remark">
@@ -111,23 +123,23 @@ export default {
           value: 'ASC',
         },
       ],
-      searchInputNumberType: [
-        {
-          label: '数量',
-          max: 'totalMax',
-          min: 'totalMin',
-        },
-        {
-          label: '进价',
-          max: 'buyPriceMax',
-          min: 'buyPriceMin',
-        },
-        {
-          label: '售价',
-          max: 'sellPriceMax',
-          min: 'sellPriceMin',
-        },
-      ],
+      // searchInputNumberType: [
+      //   {
+      //     label: '数量',
+      //     max: 'totalMax',
+      //     min: 'totalMin',
+      //   },
+      //   {
+      //     label: '进价',
+      //     max: 'buyPriceMax',
+      //     min: 'buyPriceMin',
+      //   },
+      //   {
+      //     label: '售价',
+      //     max: 'sellPriceMax',
+      //     min: 'sellPriceMin',
+      //   },
+      // ],
       // ----常用
       search: {
         name: '',
@@ -153,34 +165,40 @@ export default {
           minWidth: 200,
         },
         {
-          title: '天数',
-          key: 'total_count',
-          align: 'center',
-          minWidth: 150,
-          /* render: (h, params) => {
-            return h('span', params.row.total_count.toFixed(3));
-          },*/
-        },
-        {
-          title: '买价',
-          key: 'standard_buy_unit_price',
+          title: '前锋',
+          key: 'player1',
           align: 'center',
           minWidth: 150,
         },
         {
-          title: '卖价',
-          key: 'standard_sell_unit_price',
+          title: '战法1',
+          key: 'setting1',
           align: 'center',
           minWidth: 150,
         },
         {
-          title: '年化',
-          key: 'total_amount',
+          title: '中军',
+          key: 'player2',
           align: 'center',
           minWidth: 150,
-          render: (h, params) => {
-            return h('span', ((params.row.standard_sell_unit_price / params.row.standard_buy_unit_price - 1) / params.row.total_count * 36500).toFixed(2) + '%');
-          },
+        },
+        {
+          title: '战法2',
+          key: 'setting2',
+          align: 'center',
+          minWidth: 150,
+        },
+        {
+          title: '大营',
+          key: 'player3',
+          align: 'center',
+          minWidth: 150,
+        },
+        {
+          title: '战法3',
+          key: 'setting3',
+          align: 'center',
+          minWidth: 150,
         },
         {
           title: '备注',
@@ -294,8 +312,12 @@ export default {
       modalShow: false,
       modalParams: {
         name: '',
-        standard_buy_unit_price: '',
-        standard_sell_unit_price: '',
+        player1: '',
+        setting1: '',
+        player2: '',
+        setting2: '',
+        player3: '',
+        setting3: '',
         remark: '',
       },
       delModalShow: false,
@@ -304,12 +326,12 @@ export default {
           { required: true, message: '请输入 品名' },
           { max: 100, message: '品名 长度 100 以内' },
         ],
-        standard_buy_unit_price: [
-          { pattern: util.getRegexp('money'), message: '标准进价 只能为 小数位不超过2位的正整数' },
-        ],
-        standard_sell_unit_price: [
-          { pattern: util.getRegexp('money'), message: '标准售价 只能为 小数位不超过2位的正整数' },
-        ],
+        // standard_buy_unit_price: [
+        //   { pattern: util.getRegexp('money'), message: '标准进价 只能为 小数位不超过2位的正整数' },
+        // ],
+        // standard_sell_unit_price: [
+        //   { pattern: util.getRegexp('money'), message: '标准售价 只能为 小数位不超过2位的正整数' },
+        // ],
         remark: [
           { max: 200, message: '备注 长度 200 以内' },
         ],
@@ -419,8 +441,8 @@ export default {
                 });
                 this.modalBtnLoading = false;
               } else {
-                const SQL = `INSERT INTO GOODS (name,total_count,total_amount,standard_buy_unit_price,standard_sell_unit_price,remark,create_time,update_time)
-          VALUES ('${modalParams.name}','${modalParams.total_count}','0','${modalParams.standard_buy_unit_price}','${modalParams.standard_sell_unit_price}','${modalParams.remark}','${Date.now()}','')`;
+                const SQL = `INSERT INTO GOODS (name,player1,setting1,player2,setting2,player3,setting3,remark,create_time,update_time)
+          VALUES ('${modalParams.name}','${modalParams.player1}','${modalParams.setting1}','${modalParams.player2}','${modalParams.setting2}','${modalParams.player3}','${modalParams.setting3}','${modalParams.remark}','${Date.now()}','')`;
                 this.$logger(SQL);
                 this.$db.run(SQL, err => {
                   if (err) {
@@ -459,8 +481,12 @@ export default {
       this.modalParams = {
         id: row.id,
         name: row.name,
-        standard_buy_unit_price: row.standard_buy_unit_price,
-        standard_sell_unit_price: row.standard_sell_unit_price,
+        player1: row.player1,
+        setting1: row.setting1,
+        player2: row.player2,
+        setting2: row.setting2,
+        player3: row.player3,
+        setting3: row.setting3,
         remark: row.remark,
       };
       this.modalShow = true;
@@ -489,8 +515,12 @@ export default {
               } else {
                 const SQL = `UPDATE GOODS SET
           name='${modalParams.name}'
-          ,standard_buy_unit_price='${modalParams.standard_buy_unit_price}'
-          ,standard_sell_unit_price='${modalParams.standard_sell_unit_price}'
+          ,player1='${modalParams.player1}'
+          ,setting1='${modalParams.setting1}'
+          ,player2='${modalParams.player2}'
+          ,setting2='${modalParams.setting2}'
+          ,player3='${modalParams.player3}'
+          ,setting3='${modalParams.setting3}'
           ,remark='${modalParams.remark}'
           ,update_time='${Date.now()}'
           WHERE id = ${modalParams.id}`;
@@ -582,10 +612,10 @@ export default {
           });
         } else {
           const data = [
-            [ '品名', '数量', '标准进价', '标准售价', '总金额', '备注', '创建时间', '修改时间' ],
+            [ '队伍', '前锋', '战法', '中军', '战法', '大营', '战法', '备注', '创建时间', '修改时间' ],
           ];
           for (const item of res) {
-            data.push([ item.name, item.total_count, item.standard_buy_unit_price, item.standard_sell_unit_price, item.total_amount, item.remark, util.dateFilter(item.create_time), util.dateFilter(item.update_time) ]);
+            data.push([ item.name, item.player1, item.setting1, item.player2, item.setting2,item.player3, item.setting3, item.remark, util.dateFilter(item.create_time), util.dateFilter(item.update_time) ]);
           }
           const name = '物品管理';
           download.excel(name, [
