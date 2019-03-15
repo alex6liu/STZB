@@ -4,9 +4,15 @@ import sq3 from 'sqlite3';
 import logger from './logger';
 import { docDir } from './settings';
 // 将数据存至系统用户目录，防止用户误删程序
-export const dbPath = path.join(docDir, 'data.sqlite3');
-fse.ensureFileSync(dbPath);
+// export const dbPath = path.join(docDir, 'data.sqlite3');
+// fse.ensureFileSync(dbPath);
+// const sqlite3 = sq3.verbose();
+// const db = new sqlite3.Database(dbPath);
 
+// 存在本项目里
+export const dbPath = path.join(docDir, 'data.sqlite3');
+
+fse.ensureFileSync(dbPath);
 const sqlite3 = sq3.verbose();
 const db = new sqlite3.Database(dbPath);
 db.serialize(() => {

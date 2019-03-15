@@ -38,10 +38,6 @@
             <div>
                 <Form ref="formVali" :model="modalParams" :rules="ruleValidate" label-position="right"
                       :label-width="130" @keydown.native.enter.prevent="enterConfirm(modalParams.id)">
-                    <FormItem label="名称" prop="name">
-                        <Input v-model="modalParams.name" placeholder="必填，长度 100 以内"
-                               style="width: 250px"></Input>
-                    </FormItem>
                     <FormItem label="前锋" prop="player1">
                         <Input v-model="modalParams.player1" placeholder="必填"
                                style="width: 250px"></Input>
@@ -442,7 +438,7 @@ export default {
                 this.modalBtnLoading = false;
               } else {
                 const SQL = `INSERT INTO GOODS (name,player1,setting1,player2,setting2,player3,setting3,remark,create_time,update_time)
-          VALUES ('${modalParams.name}','${modalParams.player1}','${modalParams.setting1}','${modalParams.player2}','${modalParams.setting2}','${modalParams.player3}','${modalParams.setting3}','${modalParams.remark}','${Date.now()}','')`;
+          VALUES ('${modalParams.player1} ${modalParams.player2} ${modalParams.player3}','${modalParams.player1}','${modalParams.setting1}','${modalParams.player2}','${modalParams.setting2}','${modalParams.player3}','${modalParams.setting3}','${modalParams.remark}','${Date.now()}','')`;
                 this.$logger(SQL);
                 this.$db.run(SQL, err => {
                   if (err) {
@@ -615,7 +611,7 @@ export default {
             [ '队伍', '前锋', '战法', '中军', '战法', '大营', '战法', '备注', '创建时间', '修改时间' ],
           ];
           for (const item of res) {
-            data.push([ item.name, item.player1, item.setting1, item.player2, item.setting2,item.player3, item.setting3, item.remark, util.dateFilter(item.create_time), util.dateFilter(item.update_time) ]);
+            data.push([ item.name, item.player1, item.setting1, item.player2, item.setting2, item.player3, item.setting3, item.remark, util.dateFilter(item.create_time), util.dateFilter(item.update_time) ]);
           }
           const name = '物品管理';
           download.excel(name, [
