@@ -42,7 +42,7 @@
                 <Form ref="formVali" :model="modalParams" :rules="ruleValidate" label-position="right"
                       :label-width="130" @keydown.native.enter.prevent="enterConfirm(modalParams.id)">
                     <FormItem label="前锋" prop="player1">
-                        <Input v-model="modalParams.player1" placeholder="必填" autofocus='true'
+                        <Input v-model="modalParams.player1" placeholder="必填" autofocus="true"
                                style="width: 250px"></Input>
                     </FormItem>
                     <FormItem label="战法" prop="setting1">
