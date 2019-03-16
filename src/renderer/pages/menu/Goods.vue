@@ -1,8 +1,11 @@
 <template>
     <div>
-        <Form :label-width="90" inline @keydown.native.enter.prevent="getDataList('search')">
+        <Form :label-width="90" inline @keydown.native.enter="getDataList('search')">
             <FormItem label="队伍">
                 <Input v-model="search.name" style="width: 203px" clearable></Input>
+            </FormItem>
+            <FormItem label="战法">
+                <Input v-model="search.skill" style="width: 203px" clearable></Input>
             </FormItem>
             <FormItem label="备注">
                 <Input v-model="search.remark" style="width: 203px" clearable></Input>
@@ -39,7 +42,7 @@
                 <Form ref="formVali" :model="modalParams" :rules="ruleValidate" label-position="right"
                       :label-width="130" @keydown.native.enter.prevent="enterConfirm(modalParams.id)">
                     <FormItem label="前锋" prop="player1">
-                        <Input v-model="modalParams.player1" placeholder="必填"
+                        <Input v-model="modalParams.player1" placeholder="必填" autofocus='true'
                                style="width: 250px"></Input>
                     </FormItem>
                     <FormItem label="战法" prop="setting1">
@@ -356,7 +359,7 @@ export default {
         this.searchParams.pageIndex = method;
       }
       const searchParams = this.searchParams;
-      let whereSQL = `WHERE name LIKE '%${searchParams.name}%' AND remark LIKE '%${searchParams.remark}%' `;
+      let whereSQL = searchParams.skill ? `WHERE setting1 LIKE '%${searchParams.skill}%' OR setting2 LIKE '%${searchParams.skill}%' OR setting3 LIKE '%${searchParams.skill}%'` : `WHERE name LIKE '%${searchParams.name}%' AND remark LIKE '%${searchParams.remark}%'`;
       searchParams.totalMin !== null ? whereSQL += `AND total_count >= ${searchParams.totalMin} ` : null;
       searchParams.totalMax !== null ? whereSQL += `AND total_count <= ${searchParams.totalMax} ` : null;
       searchParams.buyPriceMin !== null ? whereSQL += `AND standard_buy_unit_price >= ${searchParams.buyPriceMin} ` : null;
@@ -510,7 +513,7 @@ export default {
                 this.modalBtnLoading = false;
               } else {
                 const SQL = `UPDATE GOODS SET
-          name='${modalParams.name}'
+          name='${modalParams.player1} ${modalParams.player2} ${modalParams.player3}'
           ,player1='${modalParams.player1}'
           ,setting1='${modalParams.setting1}'
           ,player2='${modalParams.player2}'
