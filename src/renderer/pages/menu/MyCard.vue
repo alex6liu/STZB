@@ -142,7 +142,7 @@ export default {
       search: {
         name: '',
         remark: '',
-        sort: 'DESC',
+        sort: 'ASC',
         totalMax: null,
         totalMin: null,
         buyPriceMax: null,
@@ -353,9 +353,9 @@ export default {
       const pageSQL = `LIMIT ${searchParams.pageSize} OFFSET ${(searchParams.pageIndex - 1) * searchParams.pageSize} `;
       const orderSQL = `ORDER BY id ${searchParams.sort} `;
       // 导出sql
-      this.downloadExcelSQL = 'SELECT * from GOODS ' + whereSQL + orderSQL;
+      this.downloadExcelSQL = 'SELECT * from MY_LINEUP_LIST ' + whereSQL + orderSQL;
       const rowSQL = this.downloadExcelSQL + pageSQL;
-      const countSQL = 'SELECT COUNT(id) AS totalCount from GOODS ' + whereSQL;
+      const countSQL = 'SELECT COUNT(id) AS totalCount from MY_LINEUP_LIST ' + whereSQL;
       this.$logger(rowSQL);
       this.$db.all(rowSQL, (err, res) => {
         if (err) {
@@ -405,7 +405,7 @@ export default {
           this.modalBtnLoading = true;
           const modalParams = this.modalParams;
           // 检测品名是否存在
-          const SQL = `SELECT COUNT(id) AS totalCount from GOODS WHERE name = '${modalParams.name}'`;
+          const SQL = `SELECT COUNT(id) AS totalCount from MY_LINEUP_LIST WHERE name = '${modalParams.name}'`;
           this.$db.get(SQL, (err, res) => {
             if (err) {
               this.$logger(err);
@@ -420,7 +420,7 @@ export default {
                 });
                 this.modalBtnLoading = false;
               } else {
-                const SQL = `INSERT INTO GOODS (name,player1,setting1,player2,setting2,player3,setting3,remark,create_time,update_time)
+                const SQL = `INSERT INTO MY_LINEUP_LIST (name,player1,setting1,player2,setting2,player3,setting3,remark,create_time,update_time)
           VALUES ('${modalParams.player1} ${modalParams.player2} ${modalParams.player3}','${modalParams.player1}','${modalParams.setting1}','${modalParams.player2}','${modalParams.setting2}','${modalParams.player3}','${modalParams.setting3}','${modalParams.remark}','${Date.now()}','')`;
                 this.$logger(SQL);
                 this.$db.run(SQL, err => {
@@ -468,7 +468,7 @@ export default {
           this.modalBtnLoading = true;
           const modalParams = this.modalParams;
           // 检测品名是否存在
-          const SQL = `SELECT id from GOODS WHERE name = '${modalParams.name}'`;
+          const SQL = `SELECT id from MY_LINEUP_LIST WHERE name = '${modalParams.name}'`;
           this.$db.get(SQL, (err, res) => {
             if (err) {
               this.$logger(err);
@@ -483,7 +483,7 @@ export default {
                 });
                 this.modalBtnLoading = false;
               } else {
-                const SQL = `UPDATE GOODS SET
+                const SQL = `UPDATE MY_LINEUP_LIST SET
           name='${modalParams.player1} ${modalParams.player2} ${modalParams.player3}'
           ,player1='${modalParams.player1}'
           ,setting1='${modalParams.setting1}'
@@ -537,7 +537,20 @@ export default {
     delConfrim() {
       this.$db.serialize(() => {
         this.$db.run('BEGIN');
-        const deleteSQL = `DELETE FROM GOODS WHERE id = ${this.modalParams.id}`;
+        // // 删除所有明细
+        // const deleteDetailSQL = `DELETE FROM GOODS_DETAIL_LIST WHERE goods_id = ${this.modalParams.id}`;
+        // this.$logger(deleteDetailSQL);
+        // this.$db.run(deleteDetailSQL, err => {
+        //   if (err) {
+        //     this.$logger(err);
+        //     this.$db.run('ROLLBACK');
+        //     this.$Notice.error({
+        //       title: '删除失败',
+        //       desc: err,
+        //     });
+        //   }
+        // });
+        const deleteSQL = `DELETE FROM MY_LINEUP_LIST WHERE id = ${this.modalParams.id}`;
         this.$logger(deleteSQL);
         this.$db.run(deleteSQL, err => {
           if (err) {
