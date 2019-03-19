@@ -34,7 +34,7 @@
 <template>
     <header>
         <section class="left">
-            easy-invoices
+            率土之滨
         </section>
         <section class="version">
             {{updateText}}

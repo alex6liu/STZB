@@ -31,3 +31,12 @@ exports.getDatePickerOpt = () => {
     },
   };
 };
+
+exports.UnicodeToAscii = content => {
+  const code = content.match(/&#(\d+);/g);
+  let result = '';
+  for (let i = 0; i < code.length; i++) {
+    result += String.fromCharCode(code[i].replace(/[&#;]/g, ''));
+  }
+  return result;
+};

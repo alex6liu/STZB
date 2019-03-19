@@ -29,6 +29,9 @@ npm run build:dir
 直接可以`npm run dev` 和 `npm run build` (build出的是mac上的软件,有dmg)
 ```
 
+### icon 
+来自iView `https://www.iviewui.com/components/icon-en`
+
 ---
 
 ## 项目
@@ -38,7 +41,11 @@ npm run build:dir
 ## 目的
 
 ### version 1
-记录下率土之滨的武将阵容
+- 记录下率土之滨的武将阵容
 
 ### version 2
-添加武将,战法的自动补全功能
+- 添加适用于自己的配将记录
+- 添加武将库 技能库
+
+#### bug
+- UnicodeToAscii 会导致非unicode的数字等符号丢失
