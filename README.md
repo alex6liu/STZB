@@ -1,4 +1,4 @@
-# stock dairy
+# STZB
 
 > An electron-vue sqlite3 project
 
