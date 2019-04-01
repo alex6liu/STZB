@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <draggable tag="ul" v-model="playerList" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="player-list">
-      <transition-group>
+      <transition-group class="min-container">
           <div v-for="(element, id) in playerList" :key="id" class="inner-container">
             {{element.name}}
           </div>
@@ -9,7 +9,7 @@
     </draggable>
 
     <draggable tag="ul" v-model="skillList" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="skill-list">
-      <transition-group>
+      <transition-group class="min-container">
           <div v-for="(element, id) in skillList" :key="id" class="inner-container">
             {{element.name}}
           </div>
@@ -17,142 +17,173 @@
     </draggable>
 
     <div class="my-list">
-      <draggable tag="ul" v-model="list1" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
-        <transition-group>
-            <div v-for="(element, id) in list1" :key="id" class="inner-container">
+      <div class="list">
+        <draggable tag="ul" v-model="players1" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players1" :key="id" class="inner-container left">
               {{element.name}}
             </div>
-        </transition-group>
-      </draggable>
-      <draggable tag="ul" v-model="list2" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
-        <transition-group>
-            <div v-for="(element, id) in list2" :key="id" class="inner-container">
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills1" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills1" :key="id" class="inner-container">
               {{element.name}}
             </div>
-        </transition-group>
-      </draggable>
-
-      <draggable tag="ul" v-model="list3" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
-        <transition-group>
-            <div v-for="(element, id) in list3" :key="id" class="inner-container">
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players2" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players2" :key="id" class="inner-container left">
               {{element.name}}
             </div>
-        </transition-group>
-      </draggable>
-
-      <draggable tag="ul" v-model="list4" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
-        <transition-group>
-            <div v-for="(element, id) in list4" :key="id" class="inner-container">
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills2" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills2" :key="id" class="inner-container">
               {{element.name}}
             </div>
-        </transition-group>
-      </draggable>
-
-      <draggable tag="ul" v-model="list5" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
-        <transition-group>
-            <div v-for="(element, id) in list5" :key="id" class="inner-container">
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players3" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players3" :key="id" class="inner-container left">
               {{element.name}}
             </div>
-        </transition-group>
-      </draggable>
-
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills3" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills3" :key="id" class="inner-container">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players4" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players4" :key="id" class="inner-container left">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills4" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills4" :key="id" class="inner-container">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players5" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players5" :key="id" class="inner-container left">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills5" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills5" :key="id" class="inner-container">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players6" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players6" :key="id" class="inner-container left">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills6" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills6" :key="id" class="inner-container">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players7" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players7" :key="id" class="inner-container left">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills7" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills7" :key="id" class="inner-container">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
+      <div class="list">
+        <draggable tag="ul" v-model="players8" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in players8" :key="id" class="inner-container left">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+        <draggable tag="ul" v-model="skills8" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
+          <transition-group class="min-container">
+            <div v-for="(element, id) in skills8" :key="id" class="inner-container">
+              {{element.name}}
+            </div>
+          </transition-group>
+        </draggable>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import draggable from 'vuedraggable';
+import players from '../../utils/players.js';
+import skills from '../../utils/skills.js';
 
 export default {
   data() {
     return {
-      list1: [
-        {
-          name: '队伍1',
+      players1: [],
+      skills1: [],
+      players2: [],
+      skills2: [],
+      players3: [],
+      skills3: [],
+      players4: [],
+      skills4: [],
+      players5: [],
+      skills5: [],
+      players6: [],
+      skills6: [],
+      players7: [],
+      skills7: [],
+      players8: [],
+      skills8: [],
+      playerList: players.map(e => {
+        return {
+          name: e,
           fixed: false,
-        },
-      ],
-      list2: [
-        {
-          name: '队伍2',
+        };
+      }),
+      skillList: skills.map(e => {
+        return {
+          name: e,
           fixed: false,
-        },
-      ],
-      list3: [
-        {
-          name: '队伍3',
-          fixed: false,
-        },
-      ],
-      list4: [
-        {
-          name: '队伍4',
-          fixed: false,
-        },
-      ],
-      list5: [
-        {
-          name: '队伍5',
-          fixed: false,
-        },
-      ],
-      list6: [
-        {
-          name: '队伍6',
-          fixed: false,
-        },
-      ],
-      list7: [
-        {
-          name: '队伍7',
-          fixed: false,
-        },
-      ],
-      list8: [
-        {
-          name: '队伍8',
-          fixed: false,
-        },
-      ],
-      playerList: [
-        {
-          name: '刘备',
-          fixed: false,
-        },
-        {
-          name: '吕蒙',
-          fixed: false,
-        },
-        {
-          name: '孙权',
-          fixed: false,
-        },
-      ],
-      skillList: [
-        {
-          name: '大赏三军',
-          fixed: false,
-        },
-        {
-          name: '神兵天降',
-          fixed: false,
-        },
-        {
-          name: '混水摸鱼',
-          fixed: false,
-        },
-        {
-          name: '大赏三军',
-          fixed: false,
-        },
-        {
-          name: '神兵天降',
-          fixed: false,
-        },
-        {
-          name: '混水摸鱼',
-          fixed: false,
-        },
-      ],
+        };
+      }),
       editable: true,
       isDragging: false,
       delayedDragging: false,
@@ -214,7 +245,7 @@ export default {
   border: 1px solid #000;
   margin: 10rpx;
   padding: 10px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .skill-list {
@@ -240,14 +271,34 @@ export default {
   flex-wrap: wrap;
 }
 
+.list {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid red;
+}
+
+.list + .list {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.min-container {
+  min-height: 100px;
+  min-width: 100px;
+}
+
+.left + .left {
+  margin-top: 40px;
+}
+
 .test {
   display: flex;
   flex-direction: column;
-  min-height: 80px;
-  min-width: 80px;
-  border: 1px solid #000;
-  margin: 10px;
   padding: 10px;
+}
+
+.test + .test {
+  border-left: 1px solid black;
 }
 
 </style>
