@@ -47,5 +47,8 @@ npm run build:dir
 - 添加适用于自己的配将记录
 - 添加武将库 技能库
 
+### version 3
+- 使用draggable组件, 配置自己的组队
+
 #### bug
 - UnicodeToAscii 会导致非unicode的数字等符号丢失

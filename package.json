@@ -78,7 +78,8 @@
     ]
   },
   "dependencies": {
-    "sqlite3": "^4.0.1"
+    "sqlite3": "^4.0.1",
+    "vuedraggable": "^2.20.0"
   },
   "devDependencies": {
     "axios": "^0.16.1",
