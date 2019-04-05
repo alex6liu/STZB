@@ -3,7 +3,7 @@
     <draggable tag="ul" v-model="playerList" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="player-list">
       <transition-group class="min-container">
           <div v-for="(element, id) in playerList" :key="id" class="inner-container">
-            {{element.name}}
+            {{element.name }}
           </div>
       </transition-group>
     </draggable>
@@ -11,7 +11,7 @@
     <draggable tag="ul" v-model="skillList" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="skill-list">
       <transition-group class="min-container">
           <div v-for="(element, id) in skillList" :key="id" class="inner-container">
-            {{element.name}}
+            {{element.name }}
           </div>
       </transition-group>
     </draggable>
@@ -21,14 +21,14 @@
         <draggable tag="ul" v-model="players1" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players1" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills1" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills1" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -37,14 +37,14 @@
         <draggable tag="ul" v-model="players2" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players2" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills2" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills2" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -53,14 +53,14 @@
         <draggable tag="ul" v-model="players3" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players3" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills3" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills3" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -69,14 +69,14 @@
         <draggable tag="ul" v-model="players4" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players4" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills4" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills4" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -85,14 +85,14 @@
         <draggable tag="ul" v-model="players5" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players5" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills5" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills5" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -101,14 +101,14 @@
         <draggable tag="ul" v-model="players6" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players6" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills6" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills6" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -117,14 +117,14 @@
         <draggable tag="ul" v-model="players7" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players7" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills7" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills7" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -133,14 +133,14 @@
         <draggable tag="ul" v-model="players8" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in players8" :key="id" class="inner-container left">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
         <draggable tag="ul" v-model="skills8" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="test">
           <transition-group class="min-container">
             <div v-for="(element, id) in skills8" :key="id" class="inner-container">
-              {{element.name}}
+              {{element.name }}
             </div>
           </transition-group>
         </draggable>
@@ -193,11 +193,6 @@ export default {
     draggable,
   },
   methods: {
-    orderList() {
-      this.list = this.list.sort((one, two) => {
-        return one.order - two.order;
-      });
-    },
     onMove({ relatedContext, draggedContext }) {
       const relatedElement = relatedContext.element;
       const draggedElement = draggedContext.element;
@@ -259,6 +254,7 @@ export default {
 
 .inner-container {
   border: 1px solid #000;
+  min-height: 20px;
 }
 
 .inner-container + .inner-container {
@@ -269,6 +265,10 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position: fixed;
+  left: 350px;
+  top: 50px;
+  width: 600px;
 }
 
 .list {
